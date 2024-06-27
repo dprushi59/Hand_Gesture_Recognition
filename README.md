@@ -3,11 +3,11 @@ Project to recognize  hand gesture using state of the art neural networks.
 
 ## Team
 
-Rushikesh Khandetod
+[Rushikesh Khandetod](https://github.com/dprushi59)
 
-Lavesh Kadam
+[Lavesh Kadam](https://github.com/lk2521)
 
-Archisman Bera
+[Archisman Bera](https://github.com/)
 
 ## Problem Statement
 Imagine you are working as a data scientist at a home electronics company which manufactures state of the art smart televisions. You want to develop a cool feature in the smart-TV that can recognise five different gestures performed by the user which will help users control the TV without using a remote
@@ -16,14 +16,14 @@ The gestures are continuously monitored by the webcam mounted on the TV. Each ge
 
 - Thumbs up:  Increase the volume
 - Thumbs down: Decrease the volume
-- Left swipe: 'Jump' backwards 10 seconds
+- Left swipe: 'Jump' backward 10 seconds
 - Right swipe: 'Jump' forward 10 seconds  
 - Stop: Pause the movie
 
 Each video is a sequence of 30 frames (or images)
 
 ## Understanding the Dataset
-The training data consists of a few hundred videos categorised into one of the five classes. Each video (typically 2-3 seconds long) is divided into a sequence of 30 frames(images). These videos have been recorded by various people performing one of the five gestures in front of a webcam - similar to what the smart TV will use. 
+The training data consists of a few hundred videos categorized into one of the five classes. Each video (typically 2-3 seconds long) is divided into a sequence of 30 frames(images). These videos have been recorded by various people performing one of the five gestures in front of a webcam - similar to what the smart TV will use. 
 
 The data is in a [zip](https://drive.google.com/uc?id=1ehyrYBQ5rbQQe6yL4XbLWe3FMvuVUGiL) file. The zip file contains a 'train' and a 'val' folder with two CSV files for the two folders.
 
@@ -32,14 +32,14 @@ The data is in a [zip](https://drive.google.com/uc?id=1ehyrYBQ5rbQQe6yL4XbLWe3FM
 | Model Name     | Model Type | Number of parameters | Augment Data | Model Size(in MB) | Highest Validation accuracy | Corres-ponding Training accuracy | Observations                                                                                                                                                               |
 |----------------|------------|----------------------|--------------|-------------------|-----------------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | conv_3d1_model | Conv3D     | 1,117,061            | No           | NA                | 78%                         | 99%                              | Model is over-fitting. Augment data using cropping                                                                                                                         |
-| conv_3d2_model | Conv3D     | 3,638,981            | Yes          | 43.8              | 85%                         | 91%                              | Model is not over-fitting. Next we will try to reduce the parameter size. Moreover since we see minor oscillations in loss, let's try lowering the learning rate to 0.0002 |
-| conv_3d3_model | Conv3D     | 1,762,613            | Yes          | 21.2              | 85%                         | 83%                              | Model has stable results .Also we were able to reduce the parameter size by half. Let's trying adding more layers at the same level of abstractions                        |
+| conv_3d2_model | Conv3D     | 3,638,981            | Yes          | 43.8              | 85%                         | 91%                              | Model is not over-fitting. Next, we will try to reduce the parameter size. Moreover, since we see minor oscillations in loss, let's try lowering the learning rate to 0.0002 |
+| conv_3d3_model | Conv3D     | 1,762,613            | Yes          | 21.2              | 85%                         | 83%                              | Model has stable results .Also, we were able to reduce the parameter size by half. Let's try adding more layers at the same level of abstraction                        |
 | conv_3d4_model | Conv3D     | 2,556,533            | Yes          | 30.8              | 76%                         | 89%                              | With more layers added model is over-fitting. Let's try adding dropouts at the convolution layers                                                                          |
-| conv_3d5_model | Conv3D     | 2,556,533            | Yes          | 30.8              | 70%                         | 89%                              | Adding dropouts has further reduced validation accuracy as its not to learn  generalizable features and its further over-fitting                                           |
+| conv_3d5_model | Conv3D     | 2,556,533            | Yes          | 30.8              | 70%                         | 89%                              | Adding dropouts has further reduced validation accuracy as it's not to learn  generalizable features and its further over-fitting                                           |
 | conv_3d6_model | Conv3D     | 696,645              | Yes          | 8.46              | 77%                         | 92%                              | Reducing the number of network parameters by reducing image resolution/ filter size and dense layer neurons. Comparably good validation accuracy                           |
 | conv_3d7_model | Conv3D     | 504,709              | Yes          | 6.15              | 77%                         | 85%                              |                                                                                                                                                                            |
 | conv_3d8_model | Conv3D     | 230,949              | Yes          | 2.87              | 78%                         | 86%                              |                                                                                                                                                                            |
-| rnn_cnn1_model | CNN-LSTM   | 1,657,445            | Yes          | 20                | 75%                         | 92%                              | Model is over-fitting. Let’s try reducing the number of layers in next iteration                                                                                           |
+| rnn_cnn1_model | CNN-LSTM   | 1,657,445            | Yes          | 20                | 75%                         | 92%                              | Model is over-fitting. Let’s try reducing the number of layers in the next iteration                                                                                           |
 
 ## Models with More Data Augmentation
 
@@ -55,7 +55,7 @@ The data is in a [zip](https://drive.google.com/uc?id=1ehyrYBQ5rbQQe6yL4XbLWe3FM
 | rnn_cnn2_model  | CNN-LSTM   | 1,346,021            | Yes          | 31                | 78%                         | 96%                             |
 
 ## Transfer Learning Models (CNN + RNN)
-### Mobilenet model is considered as its parameter size is less compared to Inception and Resnet models
+### The MobileNet model is considered as its parameter size is less compared to the Inception and Resnet models
 
 | Model Name        | Number of parameters | Augment Data | Model Size(in MB) | Highest validation accuracy | Corres-ponding Training accuracy | Observations                                                                                                                                     |
 |-------------------|----------------------|--------------|-------------------|-----------------------------|----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
