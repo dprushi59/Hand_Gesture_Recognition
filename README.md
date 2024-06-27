@@ -1,4 +1,4 @@
-# hand-gesture-recognition-deep-learning
+# Hand-Gesture-Recognition-Deep-Learning
 Project to recognize  hand gesture using state of the art neural networks.
 
 ## Team
